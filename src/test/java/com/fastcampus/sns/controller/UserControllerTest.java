@@ -45,7 +45,7 @@ public class UserControllerTest {
         mockMvc.perform(post("/api/v1/users/join")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(new UserJoinRequest(userName, password)))
-        ).andDo(print())
+                ).andDo(print())
                 .andExpect(status().isOk());
     }
 

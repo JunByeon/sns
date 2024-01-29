@@ -1,6 +1,7 @@
 spring.jpa:
   database: postgresql
-  hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
   hibernate.ddl-auto: update
   properties:
     hibernate.format_sql: true
@@ -8,14 +9,15 @@ spring.jpa:
 
 spring.datasource:
   hikari.maximum-pool-size: 4
-  url: jdbc:postgresql://ec2-52-54-200-216.compute-1.amazonaws.com/d48dtavg5kaem8
-  username: ntrplohdpmgmwg
-  password: 151598eac9ecea9fcb599d3ec6c6bc4f551f6f2b96e5ec600c8c13e7f00482c9
+  url: jdbc:postgresql://ec2-54-234-13-16.compute-1.amazonaws.com/d6sd3rquojsen2
+  username: noqalybbjecgbg
+  password: 5a25285f2865f86d410dfb469f6112746b80bbe9dc35a67348ad794f4ebb3624
   platform: postgres
   driver-class-name: org.postgresql.Driver
 
+
 jwt:
-  security-key: fast_campus.sns-application-2022.secret_key
+  secret-key: fast_campus.sns-application-2022.secret_key
   # 31 days
   token:
     expired-time-ms: 2592000000

@@ -1,5 +1,6 @@
 package com.fastcampus.sns.model;
 
+import com.fastcampus.sns.model.entity.PostEntity;
 import com.fastcampus.sns.model.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,30 +9,31 @@ import java.sql.Timestamp;
 
 @Getter
 @AllArgsConstructor
-public class User {
+public class Post {
     private Integer id;
-    private String userName;
-    private String password;
-    private UserRole userRole;
+
+    private String title;
+
+    private String body;
+
+    private User user;
+
     private Timestamp registeredAt;
+
     private Timestamp updatedAt;
+
     private Timestamp deletedAt;
 
-
-    public static User fromEntity(UserEntity entity) {
-        return new User(
+    public static Post fromEntity(PostEntity entity) {
+        return new Post(
                 entity.getId(),
-                entity.getUserName(),
-                entity.getPassword(),
-                entity.getRole(),
+                entity.getTitle(),
+                entity.getBody(),
+                User.fromEntity(entity.getUser()),
                 entity.getRegisteredAt(),
                 entity.getUpdatedAt(),
                 entity.getDeletedAt()
         );
     }
 
-    @Override
-    public String toString() {
-        return userName;
-    }
 }
