@@ -15,6 +15,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -90,4 +92,15 @@ public class PostService {
         likeEntityRepository.save(LikeEntity.of(userEntity, postEntity));
 
     }
+
+    @Transactional
+    public int likeCount(Integer postId) { // null일 필요가 없으므로 Integer가 아니라 int로 반환해도 된다.
+        // post exist
+        PostEntity postEntity = postEntityRepository.findById(postId).orElseThrow(() ->
+                new SnsApplicationException(ErrorCode.POST_NOT_FOUND, String.format("%s not found", postId)));
+
+        // count like
+        return likeEntityRepository.countByPost(postEntity);
+    }
+
 }
