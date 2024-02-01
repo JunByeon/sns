@@ -20,3 +20,5 @@ jwt:
   # 31 days
   token:
     expired-time-ms: 2592000000
+
+spring.redis.url: redis://:p5b924214e1fe6f163304f59f160918ce5c4cd9ccc2980f8169342805ead5b5c6@ec2-34-206-166-87.compute-1.amazonaws.com:26869
